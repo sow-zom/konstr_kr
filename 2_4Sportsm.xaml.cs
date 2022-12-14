@@ -34,7 +34,7 @@ namespace konstr_kr
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sport", sample.getConnention());
+            MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sport WHERE rozrd=2", sample.getConnention());
             dbAdab = new MySqlDataAdapter(db_command);
             sample.OpenDBconnect();
             table = new DataTable();
