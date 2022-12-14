@@ -1,0 +1,49 @@
+﻿<Window x:Class="konstr_kr._1Sporud"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:konstr_kr"
+        mc:Ignorable="d"
+        Title="_1Sporud" Height="433" Width="631">
+    <Grid Margin="0,0,0,-6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="293*"/>
+            <ColumnDefinition Width="338*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Отримати" HorizontalAlignment="Left" Height="21" Margin="177,5,0,0" VerticalAlignment="Top" Width="122" Grid.Column="1" Click="Button_Click"/>
+        <ComboBox x:Name="Bilding" HorizontalAlignment="Left" Margin="36,24,0,0" VerticalAlignment="Top" Width="120" MouseLeave="Bilding_MouseLeave" Height="21">
+            <ComboBoxItem Name="cbi1">Спорт зал</ComboBoxItem>
+            <ComboBoxItem Name="cbi2">Манеж</ComboBoxItem>
+            <ComboBoxItem Name="cbi3">Корт</ComboBoxItem>
+            <ComboBoxItem Name="cbi4">Стадіон</ComboBoxItem>
+        </ComboBox>
+        <DataGrid x:Name="grid_sporud" Margin="31,169,39,46" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.187"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.797"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+        </DataGrid>
+        <TextBox x:Name="t1" HorizontalAlignment="Left" Margin="36,85,0,0" PreviewTextInput="PreviewTextInput" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="18"/>
+        <TextBox x:Name="t2" HorizontalAlignment="Left" Margin="182,85,0,0" PreviewTextInput="PreviewTextInput" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="18" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="t3" HorizontalAlignment="Left" Margin="31,85,0,0" PreviewTextInput="PreviewTextInput" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
+        <TextBox x:Name="t4" HorizontalAlignment="Left" Margin="178,85,0,0"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
+        <Label x:Name="l1" Content="" HorizontalAlignment="Left" Margin="36,51,0,0" VerticalAlignment="Top" Width="81" Height="26"/>
+        <Label x:Name="l2" Content="" HorizontalAlignment="Left" Margin="182,51,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.ColumnSpan="2"/>
+        <Label x:Name="l3" Content="" HorizontalAlignment="Left" Margin="31,51,0,0" VerticalAlignment="Top" Width="81" Height="26" Grid.Column="1"/>
+        <Label x:Name="l4"  Content="" HorizontalAlignment="Left" Margin="178,51,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Column="1"/>
+        <Button x:Name="SearchType" Content="Діапазон значень" HorizontalAlignment="Left" Margin="177,24,0,0" VerticalAlignment="Top" Width="122" Height="21" Click="Button_Click_1" Grid.Column="1"/>
+        <TextBox x:Name="th1" Visibility="Hidden" HorizontalAlignment="Left" Margin="36,126,0,0" PreviewTextInput="PreviewTextInput" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="18"/>
+        <TextBox x:Name="th2" Visibility="Hidden" HorizontalAlignment="Left" Margin="182,126,0,0" PreviewTextInput="PreviewTextInput" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="18" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="th3" Visibility="Hidden" HorizontalAlignment="Left" Margin="31,126,0,0" PreviewTextInput="PreviewTextInput" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
+        <TextBox x:Name="th4" Visibility="Hidden"  HorizontalAlignment="Left" Margin="178,126,0,0" PreviewTextInput="PreviewTextInput" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Height="18"/>
+        <Label x:Name="vid" Visibility="Hidden" Content="Від" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="26" Height="26"/>
+        <Label x:Name="Do" Visibility="Hidden" Content="До" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Width="26" Height="26"/>
+        <Label x:Name="tup_bud" Content="Тип споруди" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="konstr_kr.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:konstr_kr"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="MainGrid" Height="199" Margin="28,43,28,0" VerticalAlignment="Top" Width="743"  RenderTransformOrigin="0.487,0.64"/>
+        <Button Content="Споруди" HorizontalAlignment="Left" Height="43" Margin="28,263,0,0" VerticalAlignment="Top" Width="128" Click="Button_Click"/>
+        <Button Content="Спотсмени" HorizontalAlignment="Left" Height="43" Margin="175,263,0,0" VerticalAlignment="Top" Width="128" Click="Sportm"/>
+
+    </Grid>
+</Window>
