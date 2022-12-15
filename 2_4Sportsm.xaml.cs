@@ -26,15 +26,30 @@ namespace konstr_kr
         db sample = new db();
         MySqlDataAdapter dbAdab = new MySqlDataAdapter();
         DataTable table = new DataTable();
+   
         public _2_4Sportsm()
         {
             InitializeComponent();
+            
+        }
+        private string CheckForEmpty2(string s)
+        {
+
+            if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
+            {
+                return "";
+            }
+            else
+            {
+                return " > ";
+            }
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd", sample.getConnention());
+
+            MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd" + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
             dbAdab = new MySqlDataAdapter(db_command);
             sample.OpenDBconnect();
             table = new DataTable();
