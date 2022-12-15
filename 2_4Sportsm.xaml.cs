@@ -46,15 +46,30 @@ namespace konstr_kr
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private string CheckForEmpty1(string s)
         {
 
-            MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd" + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
+            if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
+            {
+                return "";
+            }
+            else
+            {
+                return " = ";
+            }
+
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try { 
+            MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" +sport.Text +"'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
             dbAdab = new MySqlDataAdapter(db_command);
             sample.OpenDBconnect();
             table = new DataTable();
-            dbAdab.Fill(table); 
+            dbAdab.Fill(table);
             grid_sports.ItemsSource = table.DefaultView;
+            }
+            catch { }
         }
     }
 }
