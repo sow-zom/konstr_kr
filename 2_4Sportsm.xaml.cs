@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,11 +27,23 @@ namespace konstr_kr
         db sample = new db();
         MySqlDataAdapter dbAdab = new MySqlDataAdapter();
         DataTable table = new DataTable();
+        int sp_or_tr = 1;
    
         public _2_4Sportsm()
         {
             InitializeComponent();
             
+        }
+        private string CheckForEmpty3(string s)
+        {
+
+            if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
+            {
+
+                return " or ";
+            }
+            else return " and ";
+
         }
         private string CheckForEmpty2(string s)
         {
@@ -51,7 +64,7 @@ namespace konstr_kr
 
             if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
             {
-                return "";
+                return " = ";
             }
             else
             {
@@ -61,19 +74,45 @@ namespace konstr_kr
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           //test
+            //test
             //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" +sport.Text +"'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
-              //main test 
-            MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.*, t.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener", sample.getConnention());
-            
+            //main test 
+            try
+            {
+                if (sp_or_tr == 2)
+            {
+                    MessageBox.Show("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd" + CheckForEmpty2(rozrd.Text) + rozrd.Text + CheckForEmpty3(sport.Text) + " f.name_sport " + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'");
+                MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd"  + CheckForEmpty2(rozrd.Text) + rozrd.Text + CheckForEmpty3(sport.Text) + " f.name_sport " + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'", sample.getConnention());
+
             //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.*, t.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman INNER JOIN tc_sportsman_trener t ON t.ID_trener = p.id INNER JOIN trener tr ON t.ID_trener = pf.ID_sman  WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
 
             dbAdab = new MySqlDataAdapter(db_command);
+            }
+            if (sp_or_tr == 1)
+            {
+                    MessageBox.Show("SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE  rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text + "t.name_tr" + CheckForEmpty3(sport.Text) + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'");
+                MySqlCommand db_command = new MySqlCommand("SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE  rozrd "  + CheckForEmpty2(rozrd.Text) + rozrd.Text + "t.name_tr" + CheckForEmpty3(sport.Text) + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'", sample.getConnention());
+
+                //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.*, t.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman INNER JOIN tc_sportsman_trener t ON t.ID_trener = p.id INNER JOIN trener tr ON t.ID_trener = pf.ID_sman  WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
+
+                dbAdab = new MySqlDataAdapter(db_command);
+            }
             sample.OpenDBconnect();
             table = new DataTable();
             dbAdab.Fill(table);
             grid_sports.ItemsSource = table.DefaultView;
-           
+             }
+            catch { }
+        }
+
+        private void sport_or_tren_MouseLeave(object sender, MouseEventArgs e)
+        {
+           switch(sport_or_tren.SelectionBoxItem.ToString())
+            {
+                case "Тренер":sp_or_tr=1;break;
+                case "Спорт" : sp_or_tr = 2; break;
+
+            }
         }
     }
 }
