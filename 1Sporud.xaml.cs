@@ -92,7 +92,7 @@ namespace konstr_kr
             }
             else return " and ";
 
-        }
+        } 
         private string CheckForEmpty2(string s)
         {
 

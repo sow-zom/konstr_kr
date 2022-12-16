@@ -22,7 +22,7 @@ namespace konstr_kr
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
+    { 
         db sample = new db();
         MySqlDataAdapter dbAdab = new MySqlDataAdapter();
         DataTable table = new DataTable();

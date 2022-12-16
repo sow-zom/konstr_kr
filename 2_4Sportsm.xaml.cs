@@ -102,7 +102,7 @@ namespace konstr_kr
             dbAdab.Fill(table);
             grid_sports.ItemsSource = table.DefaultView;
              }
-            catch { }
+            catch { } 
         }
 
         private void sport_or_tren_MouseLeave(object sender, MouseEventArgs e)
@@ -110,7 +110,7 @@ namespace konstr_kr
            switch(sport_or_tren.SelectionBoxItem.ToString())
             {
                 case "Тренер":sp_or_tr=1;break;
-                case "Спорт" : sp_or_tr = 2; break;
+                case "Спорт" : sp_or_tr = 2; break; 
 
             }
         }
