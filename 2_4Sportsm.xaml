@@ -33,6 +33,8 @@
 
         </ComboBox>
         <CheckBox x:Name="morethanone2" Content="Займається більше ніж 1 видом спорту" HorizontalAlignment="Left" Margin="56,55,0,0" VerticalAlignment="Top" Width="235" Height="16" Grid.Row="1"/>
+        <Label x:Name="l3_Copy" Content="Пошук за" HorizontalAlignment="Left" Margin="254,8,0,0" VerticalAlignment="Top" Width="81" Height="26"/>
+        <Label x:Name="trn" Content="Список тренерів" HorizontalAlignment="Left" Margin="56,2,0,0" VerticalAlignment="Top" Width="173" Height="40" FontSize="20" Grid.Row="1" Visibility="Hidden"/>
 
     </Grid>
 </Window>

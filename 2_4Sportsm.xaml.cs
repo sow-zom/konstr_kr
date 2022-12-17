@@ -99,8 +99,9 @@ namespace konstr_kr
             }
                 if (sp_or_tr == 3)
                 {
-                    MessageBox.Show("SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE  rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text + "t.name_tr" + CheckForEmpty3(sport.Text) + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'");
-                    MySqlCommand db_command = new MySqlCommand("SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE  rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text + "t.name_tr" + CheckForEmpty3(sport.Text) + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'", sample.getConnention());
+                    string x = "SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE " + "t.name_sportm" + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'";
+                    MessageBox.Show(x);
+                    MySqlCommand db_command = new MySqlCommand(x, sample.getConnention());
 
                     //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.*, t.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman INNER JOIN tc_sportsman_trener t ON t.ID_trener = p.id INNER JOIN trener tr ON t.ID_trener = pf.ID_sman  WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
 
@@ -120,14 +121,24 @@ namespace konstr_kr
             l3.Visibility = Visibility.Hidden;
             l4.Visibility = Visibility.Hidden;
             morethanone2.Visibility = Visibility.Hidden;
+            trn.Visibility = Visibility.Visible;
+
+        }
+        private void visiblevalue2()
+        {
+            rozrd.Visibility = Visibility.Visible;
+            l3.Visibility = Visibility.Visible;
+            l4.Visibility = Visibility.Visible;
+            morethanone2.Visibility = Visibility.Visible;
+            trn.Visibility = Visibility.Hidden;
 
         }
         private void sport_or_tren_MouseLeave(object sender, MouseEventArgs e)
         {
            switch(sport_or_tren.SelectionBoxItem.ToString())
             {
-                case "Тренер":sp_or_tr=1;break;
-                case "Спорт" : sp_or_tr = 2; break;
+                case "Тренер":sp_or_tr=1; visiblevalue2(); break;
+                case "Спорт" : sp_or_tr = 2; visiblevalue2(); break;
                 case "Спортсмен": sp_or_tr = 3; visiblevalue(); break;
             }
         }
