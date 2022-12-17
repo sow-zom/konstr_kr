@@ -25,12 +25,12 @@
         <TextBox x:Name="sport" HorizontalAlignment="Center" Margin="0,17,0,0"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="25" Grid.Row="1"/>
         <TextBox x:Name="rozrd" HorizontalAlignment="Left" Margin="90,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="25" Grid.Row="1"/>
         <Label x:Name="l3" Content="Розряд" HorizontalAlignment="Left" Margin="90,30,0,0" VerticalAlignment="Top" Width="81" Height="26" Grid.RowSpan="2"/>
-        <Label x:Name="l3_Copy" Content="Від" HorizontalAlignment="Left" Margin="56,13,0,0" VerticalAlignment="Top" Width="29" Height="37" Grid.Row="1"/>
+        <Label x:Name="l4" Content="Від" HorizontalAlignment="Left" Margin="56,13,0,0" VerticalAlignment="Top" Width="29" Height="37" Grid.Row="1"/>
         <ComboBox x:Name="sport_or_tren" HorizontalAlignment="Center" Height="25" Margin="0,35,0,0" VerticalAlignment="Top" Width="120" MouseLeave="sport_or_tren_MouseLeave" Grid.RowSpan="2">
             <ComboBoxItem Name="cbi1">Тренер</ComboBoxItem>
             <ComboBoxItem Name="cbi2">Спорт</ComboBoxItem>
+            <ComboBoxItem Name="cbi3">Спортсмен</ComboBoxItem>
 
-            
         </ComboBox>
         <CheckBox x:Name="morethanone2" Content="Займається більше ніж 1 видом спорту" HorizontalAlignment="Left" Margin="56,55,0,0" VerticalAlignment="Top" Width="235" Height="16" Grid.Row="1"/>
 
