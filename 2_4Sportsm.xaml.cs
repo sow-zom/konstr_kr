@@ -100,7 +100,7 @@ namespace konstr_kr
                 if (sp_or_tr == 3)
                 {
                     string x = "SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE " + "t.name_sportm" + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'";
-                    MessageBox.Show(x);
+                   //MessageBox.Show(x);
                     MySqlCommand db_command = new MySqlCommand(x, sample.getConnention());
 
                     //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.*, t.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman INNER JOIN tc_sportsman_trener t ON t.ID_trener = p.id INNER JOIN trener tr ON t.ID_trener = pf.ID_sman  WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
