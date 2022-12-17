@@ -51,5 +51,11 @@ namespace konstr_kr
             _2_4Sportsm sportm = new _2_4Sportsm();
             sportm.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _6_9_12zmag zmag = new _6_9_12zmag();
+            zmag.Show();
+        }
     }
 }

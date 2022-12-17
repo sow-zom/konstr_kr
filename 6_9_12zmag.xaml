@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:konstr_kr"
         mc:Ignorable="d"
-        Title="_6_9_12zmag" Height="450" Width="800">
-    <Grid>
-        
+        Title="_6_9_12zmag" Height="330" Width="562">
+    <Grid Margin="0,0,0,-16">
+        <DatePicker HorizontalAlignment="Left" Margin="414,69,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="414,39,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Height="29" Margin="45,69,0,0" VerticalAlignment="Top" Width="135"/>
+        <Label Content="Тип пошуку" HorizontalAlignment="Left" Height="30" Margin="45,39,0,0" VerticalAlignment="Top" Width="135"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="45,141,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="117"/>
+        <TextBox HorizontalAlignment="Center" Height="24" Margin="0,141,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="118"/>
+
     </Grid>
 </Window>
