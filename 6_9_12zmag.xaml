@@ -20,11 +20,13 @@
         </ComboBox>
         <Label FontSize="17" Content="Тип пошуку" HorizontalAlignment="Left" Height="35" Margin="45,15,0,0" VerticalAlignment="Top" Width="135"/>
         <TextBox x:Name="t1" HorizontalAlignment="Left" Height="24" Margin="45,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="117"/>
-        <TextBox HorizontalAlignment="Center" Height="24" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" Margin="0,115,0,0"/>
+        <TextBox x:Name="t2" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" Margin="242,115,0,0"/>
         <DataGrid x:Name="searchP" Margin="45,144,36,48"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="441,21,0,0" VerticalAlignment="Top" Height="59" Width="85" Click="Button_Click" IsDefault="True" IsCancel="True"/>
-        <Label x:Name="l1"  Content="" HorizontalAlignment="Center" Margin="0,89,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label x:Name="l1"  Content="" HorizontalAlignment="Left" Margin="242,89,0,0" VerticalAlignment="Top" Width="118"/>
         <Label x:Name="l2" Content="" HorizontalAlignment="Left" Margin="45,89,0,0" VerticalAlignment="Top" Width="117"/>
+        <TextBox x:Name="t3" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" Margin="408,115,0,0"/>
+        <Label x:Name="l3"  Content="" HorizontalAlignment="Left" Margin="408,89,0,0" VerticalAlignment="Top" Width="118"/>
 
     </Grid>
 </Window>
