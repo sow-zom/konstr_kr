@@ -37,8 +37,9 @@ namespace konstr_kr
             //MessageBox.Show( (DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd")));
 
             //t1.Text = "SELECT * FROM zmfg WHERE zmfg.Data > " + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd");
+            //t1.Text = "SELECT * FROM zmfg WHERE (zmfg.Data BETWEEN " + "'" + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "'" + " AND '" + DateAfter.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "')";
             try { 
-            MySqlCommand db_command = new MySqlCommand("SELECT * FROM zmfg WHERE zmfg.Data > " + "'" + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "'", sample.getConnention());
+            MySqlCommand db_command = new MySqlCommand("SELECT * FROM zmfg WHERE (zmfg.Data BETWEEN " + "'" + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "'" + " AND '" + DateAfter.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "')", sample.getConnention());
             dbAdab = new MySqlDataAdapter(db_command);
             sample.OpenDBconnect();
             table = new DataTable();
@@ -46,6 +47,13 @@ namespace konstr_kr
             searchP.ItemsSource = table.DefaultView;
             }
             catch { MessageBox.Show("Виберіть дату"); }
+        }
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Click(sender , e);
+            }
         }
     }
 }
