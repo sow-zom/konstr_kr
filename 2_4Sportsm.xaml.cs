@@ -110,9 +110,13 @@ namespace konstr_kr
                 sample.OpenDBconnect();
             table = new DataTable();
             dbAdab.Fill(table);
-            grid_sports.ItemsSource = table.DefaultView;
+                // grid_sports.Columns[1].Visibility = Visibility.Hidden;
+                
+                grid_sports.ItemsSource = table.DefaultView;
              }
-            catch { } 
+            catch { }
+            //MessageBox.Show(grid_sports.Items.Count.ToString()) ;
+            //grid_sports.Columns.RemoveAt(4);
         }
 
         private void visiblevalue()

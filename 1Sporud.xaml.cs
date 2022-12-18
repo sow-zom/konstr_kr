@@ -29,7 +29,7 @@ namespace konstr_kr
         //string symbl = "=";
         //string symbl2 = "<";
         string tabl = "gym";
-        string ID = "ID";
+        //string ID = "ID";
         string num_1 = "Square";
         string num_2 = "Ceiling_height";
         string text = "Designed_for";
@@ -113,7 +113,7 @@ namespace konstr_kr
             // MySqlCommand db_command = new MySqlCommand("SELECT * FROM " + tabl + " and ID " + CheckForEmpty(t1.Text) + t1.Text + " and " + num_1 + CheckForEmpty(t2.Text) + t2.Text + " and " + num_2 + CheckForEmpty(t3.Text) + t3.Text + " or " + text + " = '" + t4.Text + "'" + " and ID " + CheckForEmpty2(th1.Text) + th1.Text + " and " + num_1 + CheckForEmpty2(th2.Text) + th2.Text + " and " + num_2 + CheckForEmpty2(th3.Text) + th3.Text + "", sample.getConnention());
 
             try {
-                                           MessageBox.Show("SELECT * FROM " + tabl + " WHERE ID " + CheckForEmpty(t1.Text) + t1.Text + " and " + num_1 + CheckForEmpty(t2.Text) + t2.Text + " and " + num_2 + CheckForEmpty(t3.Text) + t3.Text + " and ID " + CheckForEmpty2(th1.Text) + th1.Text + " and " + num_1 + CheckForEmpty2(th2.Text) + th2.Text + " and " + num_2 + CheckForEmpty2(th3.Text) + th3.Text + CheckForEmpty3(t4.Text) + text + " = " + " '" + t4.Text + "'");
+                                           //MessageBox.Show("SELECT * FROM " + tabl + " WHERE ID " + CheckForEmpty(t1.Text) + t1.Text + " and " + num_1 + CheckForEmpty(t2.Text) + t2.Text + " and " + num_2 + CheckForEmpty(t3.Text) + t3.Text + " and ID " + CheckForEmpty2(th1.Text) + th1.Text + " and " + num_1 + CheckForEmpty2(th2.Text) + th2.Text + " and " + num_2 + CheckForEmpty2(th3.Text) + th3.Text + CheckForEmpty3(t4.Text) + text + " = " + " '" + t4.Text + "'");
                 MySqlCommand db_command = new MySqlCommand("SELECT * FROM " + tabl + " WHERE ID " + CheckForEmpty(t1.Text) + t1.Text + " and " + num_1 + CheckForEmpty(t2.Text) + t2.Text + " and " + num_2 + CheckForEmpty(t3.Text) + t3.Text + " and ID " + CheckForEmpty2(th1.Text) + th1.Text + " and " + num_1 + CheckForEmpty2(th2.Text) + th2.Text + " and " + num_2 + CheckForEmpty2(th3.Text) + th3.Text + CheckForEmpty3(t4.Text) + text + " = " + " '" + t4.Text + "'", sample.getConnention());
                 dbAdab = new MySqlDataAdapter(db_command);
                 sample.OpenDBconnect();
