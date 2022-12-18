@@ -42,7 +42,7 @@ namespace konstr_kr
             //t1.Text = "SELECT * FROM zmfg WHERE zmfg.Data > " + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd");
             //t1.Text = "SELECT * FROM zmfg WHERE (zmfg.Data BETWEEN " + "'" + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "'" + " AND '" + DateAfter.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "')";
             try {
-                if (SearchType.SelectionBoxItem.ToString()=="Змагання")
+                if (SearchType.SelectionBoxItem.ToString()=="Змагання" || SearchType.SelectionBoxItem.ToString() == "Організатори")
                 {
                     MySqlCommand db_command = new MySqlCommand("SELECT * FROM zmfg WHERE (zmfg.Data BETWEEN " + "'" + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "'" + " AND '" + DateAfter.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "')", sample.getConnention());
                     dbAdab = new MySqlDataAdapter(db_command);
@@ -51,6 +51,14 @@ namespace konstr_kr
                 {
                     string x = "SELECT * FROM zmfg WHERE zmfg.name_zmg = " +  "'" + t1.Text+"'";
                     //MessageBox.Show(x);
+                    //t1.Text = x;
+                    MySqlCommand db_command = new MySqlCommand(x, sample.getConnention());
+                    dbAdab = new MySqlDataAdapter(db_command);
+                }
+                if (SearchType.SelectionBoxItem.ToString() == "Локація")
+                {
+                    string x = "SELECT * FROM zmfg WHERE zmfg.sporudaID = " + t1.Text + " and zmfg.sporuda_type = '" + t2.Text + "' " + CheckForEmpty3(t3.Text) + " zmfg.sport = '" + t3.Text + "'";
+                    MessageBox.Show(x);
                     //t1.Text = x;
                     MySqlCommand db_command = new MySqlCommand(x, sample.getConnention());
                     dbAdab = new MySqlDataAdapter(db_command);
@@ -89,7 +97,9 @@ namespace konstr_kr
                     t3.Visibility = Visibility.Hidden;
                     l3.Visibility = Visibility.Hidden;
                     DateAfter.Visibility = Visibility.Visible;   
-                    DateBefore.Visibility = Visibility.Visible;  
+                    DateBefore.Visibility = Visibility.Visible;
+                    v.Visibility = DateAfter.Visibility;
+                    d.Visibility = DateAfter.Visibility;
                     break;
                 case "Призери":
                     l2.Content = "Змагання";
@@ -101,6 +111,8 @@ namespace konstr_kr
                     l3.Visibility = Visibility.Hidden;
                     DateAfter.Visibility = Visibility.Hidden;
                     DateBefore.Visibility = Visibility.Hidden;
+                    v.Visibility = DateAfter.Visibility;
+                    d.Visibility = DateAfter.Visibility;
                     break;
                 case "Локація":
                     t1.Visibility = Visibility.Visible;
@@ -112,9 +124,25 @@ namespace konstr_kr
                     l2.Content = "Номер споруди";
                     l1.Content = "Тип споруди";
                     l3.Content = "Спорт";
+                    DateAfter.Visibility = Visibility.Hidden;
+                    DateBefore.Visibility = Visibility.Hidden;
+                    v.Visibility = DateAfter.Visibility;
+                    d.Visibility = DateAfter.Visibility;
                     break;
-                case "Клуби": break;
-                case "Організатори": break;
+                
+                case "Організатори":
+                    t1.Visibility = Visibility.Visible;
+                    l2.Visibility = Visibility.Visible;
+                    l1.Visibility = Visibility.Hidden;
+                    t2.Visibility = Visibility.Hidden;
+                    t3.Visibility = Visibility.Hidden;
+                    l3.Visibility = Visibility.Hidden;
+                    l2.Content = "Змагань проведено:";
+                    DateAfter.Visibility = Visibility.Visible;
+                    DateBefore.Visibility = Visibility.Visible;
+                    v.Visibility = DateAfter.Visibility;
+                    d.Visibility = DateAfter.Visibility;
+                    break;
                 case "Дата і корпус": break;
                 default: break;
             }
@@ -143,30 +171,20 @@ namespace konstr_kr
                     searchP.Columns.RemoveAt(4);
                     searchP.Columns.RemoveAt(4); break;
                 case "Локація":
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(5);
-                    searchP.Columns.RemoveAt(5);
-                    searchP.Columns.RemoveAt(5); 
-                    searchP.Columns.RemoveAt(4); break;
-                case "Клуби":
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(5);
-                    searchP.Columns.RemoveAt(5);
+                    searchP.Columns.RemoveAt(0);
+                    searchP.Columns.RemoveAt(2);
+                    searchP.Columns.RemoveAt(2);
+                    searchP.Columns.RemoveAt(2); 
                     searchP.Columns.RemoveAt(5); break;
+                
                 case "Організатори":
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(5);
-                    searchP.Columns.RemoveAt(5);
-                    searchP.Columns.RemoveAt(5); break;
+                    searchP.Columns.RemoveAt(3);
+                    searchP.Columns.RemoveAt(3);
+                    searchP.Columns.RemoveAt(3);
+                    searchP.Columns.RemoveAt(3);
+                    searchP.Columns.RemoveAt(3);
+                    searchP.Columns.RemoveAt(3);
+                    t1.Text= (searchP.Items.Count - 1).ToString(); break;
                 case "Дата і корпус":
                     searchP.Columns.RemoveAt(4);
                     searchP.Columns.RemoveAt(4);
@@ -178,6 +196,17 @@ namespace konstr_kr
                 default: MessageBox.Show("Оберіть тип пошуку"); break;
             }
 
+
+        }
+        private string CheckForEmpty3(string s)
+        {
+
+            if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
+            {
+
+                return " or ";
+            }
+            else return " and ";
 
         }
 

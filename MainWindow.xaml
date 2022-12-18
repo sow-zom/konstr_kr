@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:konstr_kr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="MainGrid" Height="199" Margin="28,43,28,0" VerticalAlignment="Top" Width="743"  RenderTransformOrigin="0.487,0.64"/>
-        <Button Content="Споруди" HorizontalAlignment="Left" Height="43" Margin="28,263,0,0" VerticalAlignment="Top" Width="128" Click="Button_Click"/>
-        <Button Content="Спотсмени" HorizontalAlignment="Left" Height="43" Margin="175,263,0,0" VerticalAlignment="Top" Width="128" Click="Sportm"/>
-        <Button Content="Змагання і Пошук+" HorizontalAlignment="Left" Height="43" Margin="332,263,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click_1"/>
+        Title="MainWindow" Height="320" Width="491">
+    <Grid Margin="0,0,0,-37">
+        <DataGrid x:Name="MainGrid" Height="185" Margin="24,17,10,0" VerticalAlignment="Top"  RenderTransformOrigin="0.487,0.64"/>
+        <Button Content="Споруди" HorizontalAlignment="Left" Height="43" Margin="24,216,0,0" VerticalAlignment="Top" Width="128" Click="Button_Click"/>
+        <Button Content="Спотсмени" HorizontalAlignment="Left" Height="43" Margin="178,215,0,0" VerticalAlignment="Top" Width="128" Click="Sportm"/>
+        <Button Content="Змагання і Пошук+" HorizontalAlignment="Left" Height="42" Margin="328,216,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
