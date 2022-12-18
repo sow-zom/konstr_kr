@@ -3,6 +3,7 @@ using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,8 +46,9 @@ namespace konstr_kr
             table = new DataTable();
             dbAdab.Fill(table);
             searchP.ItemsSource = table.DefaultView;
+                searchP.Columns.RemoveAt(4); searchP.Columns.RemoveAt(4); searchP.Columns.RemoveAt(4); searchP.Columns.RemoveAt(4); searchP.Columns.RemoveAt(5); searchP.Columns.RemoveAt(5); searchP.Columns.RemoveAt(5);
             }
-            catch { MessageBox.Show("Виберіть дату"); }
+            catch { MessageBox.Show("Виберіть коректну дату"); }
         }
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -55,5 +57,20 @@ namespace konstr_kr
                 Button_Click(sender , e);
             }
         }
+
+        private void ComboBox_MouseLeave(object sender, MouseEventArgs e)
+        {
+            switch(SearchType .SelectionBoxItem.ToString()) 
+            {
+                case "Змагання":  break;
+                case "Призери": break;
+                case "Локація": searchP.Columns.RemoveAt(4); break;
+                case "Клуби": break;
+                case "Організатори": break;
+                case "Дата і корпус": break;
+                default: MessageBox.Show("Оберіть тип пошуку"); break;
+            }
+        }
+
     }
 }
