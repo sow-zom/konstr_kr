@@ -28,7 +28,7 @@ namespace konstr_kr
         MySqlDataAdapter dbAdab = new MySqlDataAdapter();
         DataTable table = new DataTable();
         int sp_or_tr = 1;
-        string morethanone = "WHERE > 0";
+        string morethanone = " WHERE sports_num > 0 ";
 
 
         public _2_4Sportsm()
@@ -82,8 +82,8 @@ namespace konstr_kr
            
                 if (sp_or_tr == 2)
             {
-                if (morethanone2.IsChecked == true)  morethanone = " WHERE > 1 ";
-                if (morethanone2.IsChecked == false) morethanone = " WHERE > 0 ";
+                if (morethanone2.IsChecked == true)  morethanone = " WHERE sports_num > 1 ";
+                if (morethanone2.IsChecked == false) morethanone = " WHERE sports_num > 0 ";
                 //MessageBox.Show("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd" + CheckForEmpty2(rozrd.Text) + rozrd.Text + CheckForEmpty3(sport.Text) + " f.name_sport " + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'");
                 MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman "+morethanone+  " and rozrd"  + CheckForEmpty2(rozrd.Text) + rozrd.Text + CheckForEmpty3(sport.Text) + " f.name_sport " + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'", sample.getConnention());
 
