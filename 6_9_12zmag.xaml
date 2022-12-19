@@ -14,9 +14,9 @@
             <ComboBoxItem Name="cbi1">Змагання</ComboBoxItem>
             <ComboBoxItem Name="cbi2">Призери</ComboBoxItem>
             <ComboBoxItem Name="cbi3">Локація</ComboBoxItem>
-
             <ComboBoxItem Name="cbi6">Організатори</ComboBoxItem>
             <ComboBoxItem Name="cbi7">Дата і корпус</ComboBoxItem>
+            <ComboBoxItem Name="cbi8">Тренери</ComboBoxItem>
         </ComboBox>
         <Label FontSize="17" Content="Тип пошуку" HorizontalAlignment="Left" Height="35" Margin="45,15,0,0" VerticalAlignment="Top" Width="135"/>
         <TextBox x:Name="t1" HorizontalAlignment="Left" Height="24" Margin="45,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="117"/>

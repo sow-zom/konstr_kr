@@ -28,7 +28,9 @@ namespace konstr_kr
         MySqlDataAdapter dbAdab = new MySqlDataAdapter();
         DataTable table = new DataTable();
         int sp_or_tr = 1;
-   
+        string morethanone = "WHERE > 0";
+
+
         public _2_4Sportsm()
         {
             InitializeComponent();
@@ -77,12 +79,13 @@ namespace konstr_kr
             //test
             //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" +sport.Text +"'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
             //main test 
-            try
-            {
+           
                 if (sp_or_tr == 2)
             {
-                    //MessageBox.Show("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd" + CheckForEmpty2(rozrd.Text) + rozrd.Text + CheckForEmpty3(sport.Text) + " f.name_sport " + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'");
-                MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd"  + CheckForEmpty2(rozrd.Text) + rozrd.Text + CheckForEmpty3(sport.Text) + " f.name_sport " + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'", sample.getConnention());
+                if (morethanone2.IsChecked == true)  morethanone = " WHERE > 1 ";
+                if (morethanone2.IsChecked == false) morethanone = " WHERE > 0 ";
+                //MessageBox.Show("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE rozrd" + CheckForEmpty2(rozrd.Text) + rozrd.Text + CheckForEmpty3(sport.Text) + " f.name_sport " + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'");
+                MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman "+morethanone+  " and rozrd"  + CheckForEmpty2(rozrd.Text) + rozrd.Text + CheckForEmpty3(sport.Text) + " f.name_sport " + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'", sample.getConnention());
 
             //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.*, t.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman INNER JOIN tc_sportsman_trener t ON t.ID_trener = p.id INNER JOIN trener tr ON t.ID_trener = pf.ID_sman  WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
 
@@ -90,8 +93,11 @@ namespace konstr_kr
             }
             if (sp_or_tr == 1)
             {
-                    //MessageBox.Show("SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE  rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text + "t.name_tr" + CheckForEmpty3(sport.Text) + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'");
-                MySqlCommand db_command = new MySqlCommand("SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE  rozrd "  + CheckForEmpty2(rozrd.Text) + rozrd.Text + "t.name_tr" + CheckForEmpty3(sport.Text) + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'", sample.getConnention());
+                //MessageBox.Show("SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener WHERE  rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text + "t.name_tr" + CheckForEmpty3(sport.Text) + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'");
+                string x = "SELECT p.*, t.* FROM sportsman p INNER JOIN tc_sportsman_trener t ON t.ID_sportsman = p.id INNER JOIN trener tr ON tr.ID = t.ID_trener " +
+                    "WHERE t.name_tr"  + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'";
+               MessageBox.Show(x);
+                MySqlCommand db_command = new MySqlCommand(x, sample.getConnention());
 
                 //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.*, t.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman INNER JOIN tc_sportsman_trener t ON t.ID_trener = p.id INNER JOIN trener tr ON t.ID_trener = pf.ID_sman  WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" + sport.Text + "'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
 
@@ -113,7 +119,8 @@ namespace konstr_kr
                 // grid_sports.Columns[1].Visibility = Visibility.Hidden;
                 
                 grid_sports.ItemsSource = table.DefaultView;
-             }
+            try
+            { }
             catch { }
             //MessageBox.Show(grid_sports.Items.Count.ToString()) ;
             //grid_sports.Columns.RemoveAt(4);
@@ -126,6 +133,17 @@ namespace konstr_kr
             l4.Visibility = Visibility.Hidden;
             morethanone2.Visibility = Visibility.Hidden;
             trn.Visibility = Visibility.Visible;
+            trn.Content = "Список тренерів";
+
+        }
+        private void visiblevalue3()
+        {
+            rozrd.Visibility = Visibility.Hidden;
+            l3.Visibility = Visibility.Hidden;
+            l4.Visibility = Visibility.Hidden;
+            morethanone2.Visibility = Visibility.Hidden;
+            trn.Visibility = Visibility.Visible;
+            trn.Content = "Список спортменів";
 
         }
         private void visiblevalue2()
@@ -141,7 +159,7 @@ namespace konstr_kr
         {
            switch(sport_or_tren.SelectionBoxItem.ToString())
             {
-                case "Тренер":sp_or_tr=1; visiblevalue2(); break;
+                case "Тренер":sp_or_tr=1; visiblevalue3(); break;
                 case "Спорт" : sp_or_tr = 2; visiblevalue2(); break;
                 case "Спортсмен": sp_or_tr = 3; visiblevalue(); break;
             }

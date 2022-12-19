@@ -42,7 +42,7 @@ namespace konstr_kr
             //t1.Text = "SELECT * FROM zmfg WHERE zmfg.Data > " + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd");
             //t1.Text = "SELECT * FROM zmfg WHERE (zmfg.Data BETWEEN " + "'" + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "'" + " AND '" + DateAfter.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "')";
             try {
-                if (SearchType.SelectionBoxItem.ToString()=="Змагання" || SearchType.SelectionBoxItem.ToString() == "Організатори")
+                if (SearchType.SelectionBoxItem.ToString()=="Змагання" || SearchType.SelectionBoxItem.ToString() == "Організатори" || SearchType.SelectionBoxItem.ToString() == "Дата і корпус")
                 {
                     MySqlCommand db_command = new MySqlCommand("SELECT * FROM zmfg WHERE (zmfg.Data BETWEEN " + "'" + DateBefore.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "'" + " AND '" + DateAfter.SelectedDate.Value.Date.ToString("yyyy-MM-dd") + "')", sample.getConnention());
                     dbAdab = new MySqlDataAdapter(db_command);
@@ -58,7 +58,15 @@ namespace konstr_kr
                 if (SearchType.SelectionBoxItem.ToString() == "Локація")
                 {
                     string x = "SELECT * FROM zmfg WHERE zmfg.sporudaID = " + t1.Text + " and zmfg.sporuda_type = '" + t2.Text + "' " + CheckForEmpty3(t3.Text) + " zmfg.sport = '" + t3.Text + "'";
-                    MessageBox.Show(x);
+                    //MessageBox.Show(x);
+                    //t1.Text = x;
+                    MySqlCommand db_command = new MySqlCommand(x, sample.getConnention());
+                    dbAdab = new MySqlDataAdapter(db_command);
+                }
+                if (SearchType.SelectionBoxItem.ToString() == "Тренери")
+                {
+                    string x = "SELECT * FROM trener WHERE trener.sport_tr = " + "'" + t1.Text + "'";
+                    //MessageBox.Show(x);
                     //t1.Text = x;
                     MySqlCommand db_command = new MySqlCommand(x, sample.getConnention());
                     dbAdab = new MySqlDataAdapter(db_command);
@@ -143,7 +151,31 @@ namespace konstr_kr
                     v.Visibility = DateAfter.Visibility;
                     d.Visibility = DateAfter.Visibility;
                     break;
-                case "Дата і корпус": break;
+                case "Дата і корпус":
+                    t1.Visibility = Visibility.Hidden;
+                    t2.Visibility = Visibility.Hidden;
+                    l1.Visibility = Visibility.Hidden;
+                    l2.Visibility = Visibility.Hidden;
+                    t3.Visibility = Visibility.Hidden;
+                    l3.Visibility = Visibility.Hidden;
+                    DateAfter.Visibility = Visibility.Visible;
+                    DateBefore.Visibility = Visibility.Visible;
+                    v.Visibility = DateAfter.Visibility;
+                    d.Visibility = DateAfter.Visibility;
+                    break;
+                case "Тренери":
+                    l2.Content = "Спорт";
+                    t1.Visibility = Visibility.Visible;
+                    l2.Visibility = Visibility.Visible;
+                    t2.Visibility = Visibility.Hidden;
+                    l1.Visibility = Visibility.Hidden;
+                    t3.Visibility = Visibility.Hidden;
+                    l3.Visibility = Visibility.Hidden;
+                    DateAfter.Visibility = Visibility.Hidden;
+                    DateBefore.Visibility = Visibility.Hidden;
+                    v.Visibility = DateAfter.Visibility;
+                    d.Visibility = DateAfter.Visibility;
+                    break;
                 default: break;
             }
         }
@@ -161,6 +193,7 @@ namespace konstr_kr
                     searchP.Columns.RemoveAt(4);
                     searchP.Columns.RemoveAt(4);
                     searchP.Columns.RemoveAt(3);
+                    
                     //searchP.Columns.RemoveAt(5);
                     break;
                 case "Призери":
@@ -186,13 +219,13 @@ namespace konstr_kr
                     searchP.Columns.RemoveAt(3);
                     t1.Text= (searchP.Items.Count - 1).ToString(); break;
                 case "Дата і корпус":
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(4);
-                    searchP.Columns.RemoveAt(5);
-                    searchP.Columns.RemoveAt(5);
+                    searchP.Columns.RemoveAt(0);
+                    searchP.Columns.RemoveAt(2);
+                    searchP.Columns.RemoveAt(2);
+                    searchP.Columns.RemoveAt(2); 
                     searchP.Columns.RemoveAt(5); break;
+                case "Тренери":
+                    searchP.Columns.RemoveAt(0);break;
                 default: MessageBox.Show("Оберіть тип пошуку"); break;
             }
 

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.31" />
+    <PackageReference Include="Syncfusion.Themes.Office2019Black.WPF" Version="20.3.0.61" />
   </ItemGroup>
 
 </Project>

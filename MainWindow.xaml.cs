@@ -26,17 +26,33 @@ namespace konstr_kr
         db sample = new db();
         MySqlDataAdapter dbAdab = new MySqlDataAdapter();
         DataTable table = new DataTable();
+        Random rnd = new Random();
         
-        
+
         public MainWindow()
         {
             InitializeComponent();
-            ////MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM person p INNER JOIN person_fruit pf ON pf.person_id = p.id INNER JOIN fruits f ON f.fruit_name = pf.fruit_name", sample.getConnention());
-            ////dbAdab = new MySqlDataAdapter(db_command);
-            ////sample.OpenDBconnect();
-            ////table = new DataTable();
-            ////dbAdab.Fill(table);
-            ////MainGrid.ItemsSource = table.DefaultView;
+            int x = rnd.Next(0, 7);
+            //MessageBox.Show(x.ToString());
+            string rnd2 = "random";
+            switch (x)
+            {
+                case 0: rnd2 = "court"; break;
+                case 1: rnd2 = "gym"; break;
+                case 2: rnd2= "manej"; break;
+                case 3: rnd2 = "stadium"; break;
+                case 4: rnd2 = "sport"; break;
+                case 5: rnd2 = "sportsman"; break;
+                case 6: rnd2 = "trener"; break;
+                case 7: rnd2 = "zmfg"; break;
+            }
+
+            MySqlCommand db_command = new MySqlCommand("SELECT * FROM "+ rnd2, sample.getConnention());
+            dbAdab = new MySqlDataAdapter(db_command);
+            sample.OpenDBconnect();
+            table = new DataTable();
+            dbAdab.Fill(table);
+            MainGrid.ItemsSource = table.DefaultView;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
