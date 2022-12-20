@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
     <PackageReference Include="MySql.Data" Version="8.0.31" />
     <PackageReference Include="Syncfusion.Themes.Office2019Black.WPF" Version="20.3.0.61" />
+    <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 
 </Project>

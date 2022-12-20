@@ -1,5 +1,4 @@
 ﻿<Window x:Class="konstr_kr._2_4Sportsm"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,7 +11,7 @@
             <RowDefinition Height="13*"/>
             <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
-        <Button Content="Отримати" HorizontalAlignment="Left" Height="59" Margin="483,35,0,0" VerticalAlignment="Top" Width="106" Click="Button_Click" Grid.RowSpan="2"/>
+        <Button Content="Отримати" HorizontalAlignment="Left" Height="59" Margin="483,35,0,0" VerticalAlignment="Top" Width="94" Click="Button_Click" Grid.RowSpan="2"/>
         <DataGrid x:Name="grid_sports" Margin="50,86,47,56" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
             <DataGrid.RenderTransform>
                 <TransformGroup>
