@@ -6,11 +6,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:konstr_kr"
         mc:Ignorable="d"
-        Title="_6_9_12zmag" Background="Black" Height="330" Width="562">
+        Title="_6_9_12zmag" Background="Black" Height="466" Width="562">
     <Grid Margin="0,0,0,-16">
-        <DatePicker Text="f" x:Name="DateAfter" HorizontalAlignment="Left" Margin="242,50,0,0" VerticalAlignment="Top" Height="29" Width="118"/>
-        <DatePicker  x:Name="DateBefore" HorizontalAlignment="Left" Margin="242,20,0,0" VerticalAlignment="Top" Height="28" Width="118"/>
-        <ComboBox x:Name="SearchType" HorizontalAlignment="Left" Height="29" Margin="45,50,0,0" VerticalAlignment="Top" Width="117" MouseLeave="ComboBox_MouseLeave">
+        <DatePicker Text="f" x:Name="DateAfter" HorizontalAlignment="Left" Margin="242,60,0,0" VerticalAlignment="Top" Height="39" Width="118"/>
+        <DatePicker  x:Name="DateBefore" HorizontalAlignment="Left" Margin="242,20,0,0" VerticalAlignment="Top" Height="40" Width="118"/>
+        <ComboBox x:Name="SearchType" HorizontalAlignment="Left" Height="39" Margin="45,50,0,0" VerticalAlignment="Top" Width="117" MouseLeave="ComboBox_MouseLeave">
             <ComboBoxItem Name="cbi1">Змагання</ComboBoxItem>
             <ComboBoxItem Name="cbi2">Призери</ComboBoxItem>
             <ComboBoxItem Name="cbi3">Локація</ComboBoxItem>
@@ -19,16 +19,25 @@
             <ComboBoxItem Name="cbi8">Тренери</ComboBoxItem>
         </ComboBox>
         <Label FontSize="17" Content="Тип пошуку" HorizontalAlignment="Left" Height="35" Margin="45,15,0,0" VerticalAlignment="Top" Width="135"/>
-        <TextBox x:Name="t1" HorizontalAlignment="Left" Height="24" Margin="45,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="117"/>
-        <TextBox x:Name="t2" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" Margin="242,115,0,0"/>
-        <DataGrid x:Name="searchP" Margin="45,144,20,48"/>
-        <Button Content="Отримати" HorizontalAlignment="Left" Margin="408,32,0,0" VerticalAlignment="Top" Height="32" Width="118" Click="Button_Click" IsDefault="True" IsCancel="True"/>
-        <Label x:Name="l1"  Content="" HorizontalAlignment="Left" Margin="242,89,0,0" VerticalAlignment="Top" Width="118"/>
-        <Label x:Name="l2" Content="" HorizontalAlignment="Left" Margin="45,89,0,0" VerticalAlignment="Top" Width="135"/>
-        <TextBox x:Name="t3" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" Margin="408,115,0,0"/>
-        <Label x:Name="l3"  Content="" HorizontalAlignment="Left" Margin="408,89,0,0" VerticalAlignment="Top" Width="118"/>
-        <Label x:Name="v" Content="Від" HorizontalAlignment="Left" Margin="199,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.06,0.336"/>
-        <Label x:Name="d" Content="До" HorizontalAlignment="Left" Margin="199,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.06,0.336"/>
+        <TextBox x:Name="t1" HorizontalAlignment="Left" Height="38" Margin="45,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.769"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.371"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox x:Name="t2" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" Margin="242,135,0,0"/>
+        <DataGrid x:Name="searchP" Margin="45,196,20,48"/>
+        <Button Content="Отримати" Margin="408,16,0,0" VerticalAlignment="Top" Height="38" Width="118" Click="Button_Click" IsDefault="True" IsCancel="True"/>
+        <Label x:Name="l1"  Content="" HorizontalAlignment="Left" Margin="242,110,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label x:Name="l2" Content="" HorizontalAlignment="Left" Margin="45,110,0,0" VerticalAlignment="Top" Width="135"/>
+        <TextBox x:Name="t3" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118" Margin="408,135,0,0"/>
+        <Label x:Name="l3"  Content="" HorizontalAlignment="Left" Margin="408,110,0,0" VerticalAlignment="Top" Width="118"/>
+        <Label x:Name="v" Content="Від" HorizontalAlignment="Left" Margin="207,23,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.06,0.336"/>
+        <Label x:Name="d" Content="До" HorizontalAlignment="Left" Margin="207,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.06,0.336"/>
 
     </Grid>
 </Window>

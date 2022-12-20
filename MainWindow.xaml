@@ -11,7 +11,7 @@
         <DataGrid x:Name="MainGrid" Height="185" Margin="24,17,10,0" VerticalAlignment="Top"  RenderTransformOrigin="0.487,0.64"/>
         <Button Content="Споруди" HorizontalAlignment="Left" Height="43" Margin="24,216,0,0" VerticalAlignment="Top" Width="128" Click="Button_Click"/>
         <Button Content="Спотсмени" HorizontalAlignment="Left" Height="43" Margin="178,215,0,0" VerticalAlignment="Top" Width="128" Click="Sportm"/>
-        <Button Content="Змагання і Пошук+" HorizontalAlignment="Left" Height="42" Margin="328,216,0,0" VerticalAlignment="Top" Width="139" Click="Button_Click_1"/>
+        <Button Content="Змагання і Пошук+" Height="42" Margin="322,217,0,0" VerticalAlignment="Top" Width="149" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

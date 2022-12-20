@@ -27,7 +27,7 @@ namespace konstr_kr
         db sample = new db();
         MySqlDataAdapter dbAdab = new MySqlDataAdapter();
         DataTable table = new DataTable();
-        int sp_or_tr = 1;
+        int sp_or_tr = 2;
         string morethanone = " WHERE sports_num > 0 ";
 
 
