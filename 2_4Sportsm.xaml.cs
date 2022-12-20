@@ -79,7 +79,8 @@ namespace konstr_kr
             //test
             //MySqlCommand db_command = new MySqlCommand("SELECT p.*, f.* FROM sportsman p INNER JOIN tc_spotsman_sport pf ON pf.ID_sport = p.id INNER JOIN sport f ON f.ID_sport = pf.ID_sman WHERE f.name_sport" + CheckForEmpty1(sport.Text) + "'" +sport.Text +"'" + " and rozrd " + CheckForEmpty2(rozrd.Text) + rozrd.Text, sample.getConnention());
             //main test 
-           
+            try
+            {
                 if (sp_or_tr == 2)
             {
                 if (morethanone2.IsChecked == true)  morethanone = " WHERE sports_num > 1 ";
@@ -119,8 +120,7 @@ namespace konstr_kr
                 // grid_sports.Columns[1].Visibility = Visibility.Hidden;
                 
                 grid_sports.ItemsSource = table.DefaultView;
-            try
-            { }
+             }
             catch { }
             //MessageBox.Show(grid_sports.Items.Count.ToString()) ;
             //grid_sports.Columns.RemoveAt(4);

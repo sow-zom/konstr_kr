@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:konstr_kr"
         mc:Ignorable="d"
-        Title="_1Sporud" Height="433" Width="631">
+        Title="_1Sporud" Background="Black" Height="433" Width="631">
     <Grid Margin="0,0,0,-6">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="293*"/>

@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:konstr_kr"
         mc:Ignorable="d"
-        Title="_6_9_12zmag" Height="330" Width="562">
+        Title="_6_9_12zmag" Background="Black" Height="330" Width="562">
     <Grid Margin="0,0,0,-16">
         <DatePicker Text="f" x:Name="DateAfter" HorizontalAlignment="Left" Margin="242,50,0,0" VerticalAlignment="Top" Height="29" Width="118"/>
         <DatePicker  x:Name="DateBefore" HorizontalAlignment="Left" Margin="242,20,0,0" VerticalAlignment="Top" Height="28" Width="118"/>

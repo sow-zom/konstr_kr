@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:konstr_kr"
         mc:Ignorable="d"
-        Title="_2_4Sportsm" Height="421" Width="628">
+        Title="_2_4Sportsm" Background="Black" Height="421" Width="628">
     <Grid Margin="0,0,0,-6">
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
